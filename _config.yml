@@ -3,7 +3,7 @@
 # Site settings
 title: FIL MACKAY
 description: "Blog on high technology trading, data analytics, functional programming and unintended consequences."
-analytics: #Google analytics code in the format XX-nnnnnnnn-n
+analytics: UA-31692581-2
 baseurl: "" #important: start with /
 url: "http://filmackay.com"
 
