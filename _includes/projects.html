@@ -1,9 +1,9 @@
-<div id="portfoliowrap">
-    <div class="portfolio-centered">
+<div id="projectwrap">
+    <div class="project-centered">
         {% if include.title %}<h3>{{ include.title }}</h3>{% endif %}
-        <div class="recentitems portfolio">
+        <div class="recentitems project">
             {% for project in site.categories['project'] limit:include.limit %}
-                <div class="portfolio-item graphic-design">
+                <div class="project-item">
                     <div class="he-wrap tpl6">
                     <img src="{{ "/assets/img/project/" | prepend: site.baseurl }}{{ project.img }}" alt="">
                         <div class="he-view">
@@ -12,10 +12,10 @@
                                 <a data-rel="prettyPhoto" href="{{ "/assets/img/project/" | prepend: site.baseurl }}{{ project.img }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                 <a href="{{  project.url | prepend: site.baseurl }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
                             </div><!-- he bg -->
-                        </div><!-- he view -->		
+                        </div><!-- he view -->
                     </div><!-- he wrap -->
                 </div><!-- end col-12 -->
             {% endfor %}
-        </div><!-- portfolio -->
-    </div><!-- portfolio container -->
-</div><!--/Portfoliowrap -->
+        </div><!-- project -->
+    </div><!-- project container -->
+</div><!--/projectwrap -->

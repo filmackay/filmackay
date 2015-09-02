@@ -22,18 +22,18 @@
 // Portfolio
 (function($) {
 	"use strict";
-	var $container = $('.portfolio'),
-		$items = $container.find('.portfolio-item'),
-		portfolioLayout = 'fitRows';
+	var $container = $('.project'),
+		$items = $container.find('.project-item'),
+		projectLayout = 'fitRows';
 		
-		if( $container.hasClass('portfolio-centered') ) {
-			portfolioLayout = 'masonry';
+		if( $container.hasClass('project-centered') ) {
+			projectLayout = 'masonry';
 		}
 				
 		$container.isotope({
 			filter: '*',
 			animationEngine: 'best-available',
-			layoutMode: portfolioLayout,
+			layoutMode: projectLayout,
 			animationOptions: {
 			duration: 750,
 			easing: 'linear',
@@ -48,10 +48,10 @@
 			}, 1000);   
 		}
 				
-		$('nav.portfolio-filter ul a').on('click', function() {
+		$('nav.project-filter ul a').on('click', function() {
 				var selector = $(this).attr('data-filter');
 				$container.isotope({ filter: selector }, refreshWaypoints());
-				$('nav.portfolio-filter ul a').removeClass('active');
+				$('nav.project-filter ul a').removeClass('active');
 				$(this).addClass('active');
 				return false;
 		});
@@ -79,7 +79,7 @@
 				columnNumber = getColumnNumber(), 
 				itemWidth = Math.floor(winWidth / columnNumber);
 				
-				$container.find('.portfolio-item').each(function() { 
+				$container.find('.project-item').each(function() { 
 					$(this).css( { 
 					width : itemWidth + 'px' 
 				});
