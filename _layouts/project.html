@@ -19,9 +19,13 @@ layout: default
             <div class="hline"></div>
             <p><b>When:</b> {{ page.when }}</p>
             <p><b>Model:</b> {{ page.model }}</p>
+            {% if page.client != null %}
             <p><b>Client:</b> {{ page.client }}</p>
+            {% endif %}
             <p><b>Technologies:</b> {{ page.tech }}</p>
+            {% if page.website != null %}
             <p><b>Website:</b> <a href="{{ page.website }}">Click here</a></p>
+            {% endif %}
         </div>
     </div><! --/row -->
 </div><! --/container -->

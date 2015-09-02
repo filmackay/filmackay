@@ -11,6 +11,7 @@ thumb: high-frequency-trade-cost-analysis.jpg
 carousel:
 - high-frequency-trade-cost-analysis.png
 client: Capital Markets CRC, Confidential
+website: http://www.cmcrc.com/
 ---
 #### High Frequency TCA
 

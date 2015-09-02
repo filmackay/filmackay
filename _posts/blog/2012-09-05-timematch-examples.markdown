@@ -56,18 +56,18 @@ Here are some examples of how the TimeMatch public order book would work. You ma
         <td>Potentially matching against another order, if the market is stationary.</td>
     </tr>
     <tr>
-        <td class="hopeful">Hopeful</td>
+        <td class="hopeful">Hopeful (taker)</td>
         <td>No</td>
         <td>Yes</td>
         <td>Yes</td>
-        <td>Order is committed to the auction, but they could involuntarily be removed if another bidder offers a better price, with sufficient time period.</td>
+        <td>Taker is committed to the auction, could be removed if another taker offers price improvement.</td>
     </tr>
     <tr>
-        <td class="auction">Auction</td>
+        <td class="auction">Auction (maker)</td>
         <td>No</td>
         <td>No</td>
         <td>Yes</td>
-        <td>Order will match against the opposing Hopeful order, or another order at a higher price.</td>
+        <td>Order will match against the opposing taker (Hopeful order) or at another improved price.</td>
     </tr>
     <tr>
         <td class="trade">Trade</td>
@@ -81,6 +81,12 @@ Here are some examples of how the TimeMatch public order book would work. You ma
 ## A: Status quo
 
 We'll start with a simple example that shows the way the public order book works today - ie. instant execution with no auction period:
+
+The notation for bids: `Party` (`Time`) `Price`, asks: `Price` (`Time`) `Party`
+
+* `Party`: the counter-party owning the order
+* `Time`: the length of time that the party wishes to participate in auction, after price overlapping
+* `Price`: limit price of the order
 
 <table class="orderbook">
 <tr>
@@ -96,20 +102,20 @@ We'll start with a simple example that shows the way the public order book works
 <td></td>
 </tr>
 <tr>
-<td>0.001</td>
+<td>1.000</td>
 <td style="text-align: right"><span class="trade">X (0) 10</span></td>
 <td><span class="trade">10 (0) Z</span></td>
 <td>Z <span class="glyphicon glyphicon-arrow-right"></span> X @ 10</td>
 </tr>
 <tr>
-<td>0.001</td>
+<td>1.000</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 </table>
 
-The above table shows an order book a seller "Z" showing an order which is matched up a millisecond later by "X". Both parties are asking for instant execution - denoted by "(0)" in both cases which means the auction time period is zero. The "10" is the price in both cases, so we have the simplest of trade matches.
+The above table shows an order book a seller "Z" showing an order which is matched instantly by "X". Both parties are asking for instant execution - denoted by "(0)" in both cases which means the auction time period is zero. The "10" is the price in both cases, so we have the simplest of trade matches.
 
 ## B: Slow liquidity provider
 
